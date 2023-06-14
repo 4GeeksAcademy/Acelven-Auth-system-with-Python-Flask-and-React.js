@@ -1,4 +1,5 @@
-import React, { Component, useContext, useState } from "react";
+import React, { Component, useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import context from "react-bootstrap/esm/AccordionContext";
 import { Context } from "../store/appContext";
 // import "../../styles/home.css";
@@ -7,36 +8,22 @@ export const Login = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const token = sessionStorage.getItem("token");
+  const history = useNavigate();
 
   const clickHandler = () => {
-    const opt = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    };
-    fetch("http://127.0.0.1:3001/api/token", opt)
-      .then((resp) => {
-        if (resp.status === 200) return resp.json();
-        else alert("An error has been found");
-      })
-      .then((data) => {
-        console.log("Backend data check", data);
-        sessionStorage.setItem("token", data.access_token);
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error("ERROR ERROR ERROR DOES NOT COMPUTE", error);
-      });
+    actions.login(email, password);
   };
+
+  useEffect(() => {
+    if (store.token && store.token !== "" && store.token !== undefined) {
+      history("/private");
+    }
+  }, [store.token, history]);
 
   return (
     <div className="auth-wrapper">
-      {token && token != "" && token != undefined ? (
-        "This is the token logged in" + token
+      {store.token && store.token != "" && store.token != undefined ? (
+        "This is the token logged in" + store.token
       ) : (
         <div className="auth-inner">
           <form>

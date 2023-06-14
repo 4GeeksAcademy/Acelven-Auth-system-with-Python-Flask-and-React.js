@@ -1,5 +1,7 @@
 # WebApp boilerplate with React JS and Flask API
 
+email and password are both "test" for this excercise
+
 Build web applications using React.js for the front end and python/flask for your backend API.
 
 - Documentation can be found here: https://start.4geeksacademy.com/starters/react-flask
@@ -11,7 +13,7 @@ Build web applications using React.js for the front end and python/flask for you
 
 ### 1) Installation:
 
-> If you use Github Codespaces (recommended) or Gitpod this template will already come with Python, Node and the Posgres Database installed. If you are working locally make sure to install Python 3.10, Node 
+> If you use Github Codespaces (recommended) or Gitpod this template will already come with Python, Node and the Posgres Database installed. If you are working locally make sure to install Python 3.10, Node
 
 It is recomended to install the backend first, make sure you have Python 3.8, Pipenv and a database engine (Posgress recomended)
 
@@ -55,7 +57,7 @@ To update with all yours tables you can edit the file app.py and go to the line 
 
 ### Front-End Manual Installation:
 
--   Make sure you are using node version 14+ and that you have already successfully installed and runned the backend.
+- Make sure you are using node version 14+ and that you have already successfully installed and runned the backend.
 
 1. Install the packages: `$ npm install`
 2. Start coding! start the webpack dev server `$ npm run start`

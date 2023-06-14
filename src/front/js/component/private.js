@@ -1,7 +1,18 @@
-import React from "react";
 import Card from "react-bootstrap/Card";
+import React, { useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import context from "react-bootstrap/esm/AccordionContext";
+import { Context } from "../store/appContext";
 
 function Private() {
+  const { store, actions } = useContext(Context);
+  const history = useNavigate();
+
+  useEffect(() => {
+    if (!store.token || store.token === "" || store.token === undefined) {
+      history("/"); // Replace "public" with the desired URL for the opposite scenario
+    }
+  }, [store.token, history]);
   return (
     <div className="privateCard">
       <Card style={{ width: "18rem" }}>
