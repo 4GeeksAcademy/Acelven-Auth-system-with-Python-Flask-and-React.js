@@ -5,7 +5,7 @@ import { BackendURL } from "./component/backendURL";
 
 import Home from "./pages/home";
 import { Login } from "./component/login";
-import SignUp from "./component/signup";
+import { SignUp } from "./component/signup";
 import Private from "./component/private";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
