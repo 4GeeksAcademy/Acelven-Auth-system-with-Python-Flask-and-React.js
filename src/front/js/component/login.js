@@ -10,7 +10,8 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const history = useNavigate();
 
-  const clickHandler = () => {
+  const clickHandler = (e) => {
+    e.preventDefault(); // Prevent form submission and page reload
     actions.login(email, password);
   };
 
